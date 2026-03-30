@@ -82,11 +82,6 @@ while True:
     # parsed json response
     parsed_response = json.loads(response.choices[0].message.content)
 
-    if parsed_response.get("step") == "think":
-        # Make a API Call and append the result as validate
-        messages.append({ "role": "assistant", "content": "<>" })
-        continue
-
     if parsed_response.get("step") != "result":
         print("          🧠:", parsed_response.get("content"))
         continue
