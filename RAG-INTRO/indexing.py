@@ -14,6 +14,13 @@ pdf_path = Path(__file__).parent / "nodejs.pdf"
 loader = PyPDFLoader(file_path=pdf_path)
 docs = loader.load()  # Read PDF File
 
+# print pdf to see the structure of the loaded document
+# print("Docs[0] ", docs[0])
+
+# print("Docs[0] ", docs[5])
+# print("Docs[0] ", docs[50])
+
+
 # Chunking
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
@@ -31,7 +38,7 @@ embedding_model = OpenAIEmbeddings(
 
 vector_store = QdrantVectorStore.from_documents(
     documents=split_docs,
-    url="http://vector-db:6333",
+    url="http://localhost:6333",
     collection_name="learning_vectors",
     embedding=embedding_model
 )
