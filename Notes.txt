@@ -1,0 +1,84 @@
+# commands used
+
+--------------------------------------------------------------------------------------
+
+# git commands
+
+git add "folder name"
+git commit -m "msg"
+git push origin main
+
+# to add gitignore
+npx gitignore python
+--------------------------------------------------------------------------------------
+
+# cmd used in python code
+
+python3 -m venv venv
+source venv/bin/activate
+pip install openai python-dotenv requests
+pip install google-genai
+python "filename" to run the application
+
+pip freeze > abc.txt ###### list all installed python packages with versions
+pip install langchain_community pypdf
+pip install langchain-text-splitters
+pip install langchain-openai
+pip install langchain-qdrant
+
+--------------------------------------------------------------------------------------
+
+
+# docker commands
+
+docker compose -f 'file path here'
+ docker compose up
+ docker compose up - d
+ docker compose down
+
+
+ --------------------------------------------------------------------------------------
+
+# langgraph
+
+# for pdf - pypdf
+pip install langchain_community pypdf
+
+# split chunk by chunk
+RecursiveCharacterTextSplitter
+pip install langchain-text-splitters
+
+# add qdrant
+pip install langchain-qdrant
+# qdrant wrapper in langchain
+QdrantVectorStore
+
+# langchain open ai embedding
+OpenAIEmbeddings
+pip install langchain-openai
+
+
+
+
+
+
+
+ --------------------------------------------------------------------------------------
+
+
+#####   vector db
+
+- PineCone
+- Astra db
+- qdrant
+- Chroma db
+- weaviate db
+- PG vector
+- Milvus db
+
+
+create a docker compose file to run qdrant db
+loclhost:6333/dashboard = local url for qdrant
+
+
+
