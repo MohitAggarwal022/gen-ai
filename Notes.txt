@@ -4,9 +4,31 @@
 
 # git commands
 
+git checkout branch
+
+
+git init
 git add "folder name"
 git commit -m "msg"
 git push origin main
+
+if code committed to master instead of branch
+
+git log --oneline --all --graph
+git log --oneline -3   // get 3 latest logs
+
+git checkout branch
+
+// always older first (in reverse order)
+git cherry-pick id here for last one 
+like
+git cherry-pick 453212w
+
+git checkout master
+
+git reset --hard HEAD~3
+
+
 
 # to add gitignore
 npx gitignore python
@@ -26,6 +48,16 @@ pip install langchain-text-splitters
 pip install langchain-openai
 pip install langchain-qdrant
 
+pip install "fastapi[standard]"
+### run fastapi code and server will running on port 8000
+fastapi dev server.py
+
+pip install rq
+pip install uvicorn
+
+
+# to run the worker/consumer
+rq worker --with-scheduler 
 --------------------------------------------------------------------------------------
 
 
@@ -81,4 +113,4 @@ create a docker compose file to run qdrant db
 loclhost:6333/dashboard = local url for qdrant
 
 
-
+- valkey (redis alternative) - run on port 6379 (redis defaukt port)
