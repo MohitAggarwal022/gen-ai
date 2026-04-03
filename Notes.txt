@@ -38,6 +38,9 @@ npx gitignore python
 
 python3 -m venv venv
 source venv/bin/activate
+
+link folder/.env folder/.env
+
 pip install openai python-dotenv requests
 pip install google-genai
 python "filename" to run the application
@@ -54,10 +57,16 @@ fastapi dev server.py
 
 pip install rq
 pip install uvicorn
+pip install pydantic
 
 
 # to run the worker/consumer
 rq worker --with-scheduler 
+
+rq worker --with-scheduler --url redis://valkey:6379
+
+sh worker.sh
+
 --------------------------------------------------------------------------------------
 
 
@@ -73,6 +82,10 @@ docker compose -f 'file path here'
 
 # langgraph
 
+
+pip install langgraph 
+
+
 # for pdf - pypdf
 pip install langchain_community pypdf
 
@@ -82,6 +95,7 @@ pip install langchain-text-splitters
 
 # add qdrant
 pip install langchain-qdrant
+
 # qdrant wrapper in langchain
 QdrantVectorStore
 
@@ -90,10 +104,47 @@ OpenAIEmbeddings
 pip install langchain-openai
 
 
+pip install mem0ai
+pip install langchain-neo4j
+pip install langfuse
+
+### STATE IN langgraph
+
+TypedDict
+StateGraph
+START 
+END
+
+## for routing
+Literal
+
+## for add multiple data just like array list
+Annotated, add_messages
+
+## easily change the model provide as well
+init_chat_model
 
 
+####### CHECKPOINTER
+pip install pymongo langgraph langgraph-checkpoint-mongodb
+
+## to save checkpointer in mongo db
+MongoDBSaver
 
 
+ --------------------------------------------------------------------------------------
+
+
+Tool Calling 
+
+1. create function annotated with @tool decorator
+2. bind tool using .bind_tools method
+3. 
+
+
+use @tool()
+
+ToolNode, tools_condition = present in prebuilt package
 
  --------------------------------------------------------------------------------------
 
@@ -114,3 +165,11 @@ loclhost:6333/dashboard = local url for qdrant
 
 
 - valkey (redis alternative) - run on port 6379 (redis defaukt port)
+
+
+--------------------------------------------------------------------------------
+
+
+
+export $(grep -v '^#' .env | xargs -d '\n') 
+rq worker --with-scheduler --url redis://valkey:6379
